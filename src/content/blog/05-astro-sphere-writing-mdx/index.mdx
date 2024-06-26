@@ -4,11 +4,10 @@ summary: "Lorem ipsum dolor sit amet"
 date: "Mar 12 2024"
 draft: false
 tags:
-- Tutorial
-- Astro
-- Astro Sphere
-- Markdown
-- MDX
+  - Tutorial
+  - Astro
+  - Markdown
+  - MDX
 ---
 
 MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into your Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
@@ -26,13 +25,9 @@ import MyComponent from "./MyComponent.astro"
 </MyComponent>
 ```
 
-import MyComponent from "./MyComponent.astro"
+import MyComponent from "./MyComponent.astro";
 
-<MyComponent name="You">
-  Welcome to MDX
-</MyComponent>
-
-
+<MyComponent name="You">Welcome to MDX</MyComponent>
 
 ## An interactive Solid Js component
 
@@ -41,13 +36,13 @@ import MyComponent from "./MyComponent.astro"
 import MyComponent from "@components/Counter"
 
 // Don't forget the astro client:load directive
-<Counter client:load /> 
+<Counter client:load />
 ```
 
-import Counter from "@components/Counter"
+import Counter from "@components/Counter";
 
 <Counter client:load />
 
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />

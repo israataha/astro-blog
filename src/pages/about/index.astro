@@ -1,0 +1,46 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import BottomLayout from "@layouts/BottomLayout.astro";
+import { ABOUT } from "@consts";
+---
+
+<PageLayout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate page-heading">
+      {ABOUT.TITLE}
+    </div>
+  </TopLayout>
+
+  <BottomLayout>
+    <!-- <div class="animate"></div> -->
+    <div class="relative bg-white dark:bg-black">
+      <div class="mx-auto max-w-screen-sm p-5 space-y-24 pb-16">
+        <!-- About Section -->
+        <section class="animate">
+          <article>
+            <p>
+              I am a <b><i>full stack software engineer</i></b>, <b><i>conference speaker</i></b>, <b><i>writer</i></b>
+              and <b><i>avid baker</i></b>. Fueled by constant curiosity and a passion for learning, I take a
+              user-centric approach to problem solving, paying close attention to the details without losing sight of
+              the big picture.
+            </p>
+            <p>
+              I currently work as a Software Architect at Vibrant Credit Union, where I lead the development of <a
+                href="https://www.vibrantcoffeehouseandkitchen.com/">Vibrant Coffeehouse & Kitchen</a
+              >'s new mobile app using React Native, .NET/C#, PostgreSQL and Azure. Read more about it <a href="/work"
+                >here</a
+              >.
+            </p>
+            <p>
+              When I'm not behind the computer, I'm usually spending quality time with my family, going on walks, and
+              geocaching adventures with my kids. We also love watching movies and shows together; our current favorite
+              is The Amazing Race. We also enjoy traveling across the US and internationally. Some of my favorite
+              destinations have been Spain and Japan, both of which have left me with unforgettable memories.
+            </p>
+          </article>
+        </section>
+      </div>
+    </div>
+  </BottomLayout></PageLayout
+>
