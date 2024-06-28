@@ -3,7 +3,7 @@ import type { Site, Page, Links, Socials } from "@types";
 // Global
 export const SITE: Site = {
   TITLE: "Israa Taha",
-  DESCRIPTION: "Welcome to Astro Sphere, a portfolio and blog for designers and developers.",
+  DESCRIPTION: "Developer, speaker and writer.",
   AUTHOR: "Israa Taha",
 };
 
