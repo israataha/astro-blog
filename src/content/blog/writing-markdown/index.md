@@ -7,6 +7,7 @@ tags:
   - Tutorial
   - Astro
   - Markdown
+  - MDX
 ---
 
 ### Headings
@@ -49,10 +50,10 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 Relative image in the /public folder
 
 ```markdown
-![blog placeholder](/open-graph.jpg)
+![blog placeholder](/astro-open-graph.jpg)
 ```
 
-![blog placeholder](/open-graph.jpg)
+![blog placeholder](/astro-open-graph.jpg)
 
 Relative Image in the same folder as the markdown
 
@@ -233,3 +234,42 @@ X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+
+## MDX
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into your Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.
+
+### An astro component with props
+
+```
+// Imported from relative path (same dir as markdown file)
+import MyComponent from "./MyComponent.astro"
+
+<MyComponent name="You">
+  Welcome to MDX
+</MyComponent>
+```
+
+import MyComponent from "./MyComponent.astro";
+
+<MyComponent name="You">Welcome to MDX</MyComponent>
+
+### An interactive Solid Js component
+
+```
+// Imported from components directory (src/components)
+import MyComponent from "@components/Counter"
+
+// Don't forget the astro client:load directive
+<Counter client:load />
+```
+
+import Counter from "@components/Counter";
+
+<Counter client:load />
+
+<br />
+<br />
+<br />
