@@ -1,6 +1,6 @@
 ---
-title: "React Native: Fixing jumpy screens with React Navigation's Bottom Tabs Navigator"
-summary: "Troubleshooting guide to fix jumpy behavior when rendering screens"
+title: "React Native: Using useSafeAreaInsets to fix jumpy screens with React Navigation's Bottom Tabs Navigator"
+summary: "Troubleshooting guide on how to implement fix useSafeAreaInsets to fix jumpy behavior when rendering screens"
 date: "June 24 2024"
 draft: false
 tags:

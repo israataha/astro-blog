@@ -1,7 +1,7 @@
 ---
 title: "Deploying Apple’s apple-app-site-association file to an Azure Web App Using .NET"
 summary: "A guide to supporting iOS Password Autofill with ASP .NET Core backend"
-date: "July 26 2024"
+date: "August 5, 2024"
 draft: false
 tags:
   - Azure

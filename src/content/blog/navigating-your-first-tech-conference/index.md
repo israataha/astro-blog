@@ -1,7 +1,7 @@
 ---
 title: "How To Navigate Your First Tech Conference Alone"
-summary: "A practical guide to making the most of tech conferences as an introvert"
-date: "August 3, 2024"
+summary: "A practical guide to meeting new people and making the most of tech conferences as an introvert"
+date: "August 5, 2024"
 draft: false
 tags:
   - Networking
