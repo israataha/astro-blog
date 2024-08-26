@@ -1,0 +1,194 @@
+---
+title: "Expo Router Basics"
+summary: "A high level overview of basic Expo Router concepts"
+date: "August 24, 2024"
+draft: false
+tags:
+  - React Native
+  - Expo
+  - Expo Router
+---
+
+If you're building a React Native app, intuitive navigation is crucial for a good user experience.
+[Expo Router](https://docs.expo.dev/router/introduction/), part of the Expo SDK, offers a powerful solution for managing navigation in your app.
+In this post, we'll explore the basics of Expo Router, a file-based router that simplifies screen navigation in React Native applications.
+
+## What is Expo Router?
+
+Expo Router is a file-based router for React Native, built on top of [React Navigation](https://reactnavigation.org/).
+It abstracts much of the complex navigation code and setup, allowing you to manage routes using a file structure similar to modern web development frameworks like [Next.js](https://nextjs.org/), [Astro](https://astro.build/) and [Svelte](https://svelte.dev/).
+With Expo Router, your file structure directly maps to your app's routes. For example, a file at `app/settings.tsx` would create a route accessible at `/settings` in your app.
+
+## Key Concepts
+
+To get started with Expo Router, let's explore these five main concepts:
+
+### 1. Folders & Pages
+
+Folders and pages represent segments in the URL. Each file in the `app` directory becomes a route in your application.
+
+Example structure:
+
+```
+app/
+  index.tsx      // maps to "/"
+  settings.tsx   // maps to "/settings"
+  profile/
+    index.tsx    // maps to "/profile"
+    details.tsx  // maps to "/profile/details"
+```
+
+### 2. Home Page
+
+The `index.tsx` file is used as the home page for a route. At the root level, `app/index.tsx` becomes your app's main entry point.
+
+### 3. Layout Routes
+
+Layout routes, defined in `_layout.tsx` files, determine how screens in a folder are laid out. They're crucial for creating consistent UI across multiple screens.
+
+The `app/_layout.tsx` file serves as the root layout. It's used to add providers that should be available to every route in the app, such as an AuthProvider.
+
+Example `app/_layout.tsx`:
+
+```tsx
+import { Slot } from "expo-router";
+
+export default function RootLayout() {
+  return (
+    <Provider>
+      <Slot /> {/* This renders the current child route */}
+    </Provider>
+  );
+}
+```
+
+There can only be one layout route per directory. To use multiple layout routes, you would need to add multiple directories.
+
+Example structure:
+
+```
+app
+  _layout.tsx
+  home
+    _layout.tsx
+    index.tsx
+  settings
+    _layout.tsx
+    index.tsx
+    about.tsx
+
+```
+
+### 4. Groups
+
+Groups, which are represented using the `()` syntax, allow you to organize sections of your app without affecting the URL structure.
+They're useful for adding layouts or organizing code without introducing extra URL segments.
+
+Example:
+
+```
+app/
+  (auth)/
+    login.tsx    // maps to "/login"
+    register.tsx // maps to "/register"
+  (app)/
+    home.tsx     // maps to "/home"
+    profile.tsx  // maps to "/profile"
+```
+
+In Expo Router, the `(tabs)` directory is a special type of group.
+When you create a directory named `(tabs)`, Expo Router knows to automatically use the Tabs layout for the screens inside that directory.
+This is particularly useful for apps that rely on tab-based navigation, as it allows you to set up your tabs with minimal configuration.
+
+### 5. Dynamic Routes
+
+Dynamic routes, which are represented using square brackets `[]`, allow you to match any unmatched path at a given segment level.
+Dynamic segments are accessible as route parameters in the page component.
+
+Example `app/user/[id].tsx`:
+
+```tsx
+import { useLocalSearchParams } from "expo-router";
+import { Text } from "react-native";
+
+export default function UserProfile() {
+  const { id } = useLocalSearchParams();
+  return <Text>User Profile {id}</Text>;
+}
+```
+
+This creates a route that matches any path like `/user/123` or `/user/abc`.
+
+## Common Questions
+
+While learning Expo Router, I had several questions, which I'm sharing here, along with the answers I discovered, in hopes that they might help other developers who are new to Expo Router.
+Here are some of the key questions I encountered:
+
+### Do I always need a root index (app/index.tsx) file?
+
+No, you don't always need a root index file.
+For example, if your app has a tab-based navigation and no main entry screen like a login page, you can structure your app without an index file.
+However, having an index file at the root level is common for defining the initial route of your app.
+
+Example:
+
+```
+app/
+  _layout.tsx
+  (tabs)/
+    _layout.tsx
+    index.tsx
+    settings.tsx
+    about.tsx
+```
+
+### What's the difference between /settings.tsx and /settings/index.tsx?
+
+Both `/settings.tsx` and `/settings/index.tsx` map to `/settings` in the URL. The main differences are:
+
+- Use `/settings.tsx` for a standalone settings page.
+- Use `/settings/index.tsx` if you plan to nest other pages under the `/settings` route, which can help keep your code organized.
+
+For example, with `/settings/index.tsx`, you could easily add `/settings/profile.tsx` or `/settings/notifications.tsx` as sub-pages.
+
+### How do I handle authentication with Expo Router?
+
+You can use groups and layout routes for authentication. For example:
+
+```
+app/
+    _layout.tsx
+    login.tsx
+  (app)/
+    _layout.tsx  <- Check authentication here
+    index.tsx
+    schedule.tsx
+    profile.tsx
+```
+
+In the `(app)/_layout.tsx`, you can check for authentication and redirect to the login page if needed.
+
+Example `(app)/_layout.tsx`:
+
+```tsx
+import { Redirect, Stack } from "expo-router";
+import { useAuth } from "../../providers/AuthProvider";
+
+export default function Layout() {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Redirect href="/login" />;
+  }
+
+  return <Stack />;
+}
+```
+
+---
+
+This blog post provides a high-level overview of Expo Router's basic concepts, but it's important to note that it's not meant to be an exhaustive guide.
+Expo Router offers many more features and nuances that can enhance your React Native app's navigation and structure.
+
+For a more comprehensive understanding and advanced usage, I highly encourage you to explore the [Expo Router documentation](https://docs.expo.dev/router/introduction/).
+The official docs provide excellent in-depth explanations, additional concepts, best practices, and up-to-date information on new features and updates.
