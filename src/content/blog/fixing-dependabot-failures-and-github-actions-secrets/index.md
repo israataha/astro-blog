@@ -1,6 +1,6 @@
 ---
 title: "Fixing Dependabot Workflow Failures: Understanding GitHub Actions and Dependabot Secrets"
-summary: "Learn how to securely fix Dependabot-triggered workflow failures by configuring Dependabot secrets"
+summary: "Learn how to fix Dependabot-triggered workflow failures by configuring Dependabot secrets"
 date: "December 03 2024"
 draft: false
 tags:
