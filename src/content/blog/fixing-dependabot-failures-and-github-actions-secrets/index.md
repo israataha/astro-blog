@@ -40,6 +40,8 @@ Dependabot secrets work similarly to GitHub Actions secrets but must be explicit
 
 Once created, the secret will appear on the Dependabot secrets page, where you can update or remove it as needed.
 
+It's worth nothing that unlike GitHub Actions secrets, Dependabot secrets are not available in the [Github Actions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions).
+
 For more details, refer to the official GitHub documentation on [Adding a repository secret for Dependabot](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#adding-a-repository-secret-for-dependabot).
 
 ## Using Secrets in Your Workflow
@@ -108,9 +110,3 @@ jobs:
 2. **Name Secrets Consistently**: Use identical names for GitHub Actions and Dependabot secrets to simplify workflow logic.
 
 3. **Restrict Secret Access**: Only add secrets to repositories where they are required. Use fine-grained permissions to limit exposure.
-
-[Automating Dependabot with GitHub Actions](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions)
-
-[Adding a repository secret for Dependabot](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#adding-a-repository-secret-for-dependabot)
-
-[](https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-852541544)
