@@ -1,10 +1,11 @@
 ---
 title: "How to Create and Use a Frontmatter Snippet for Markdown Files in VS Code"
-summary: "Summary"
+summary: "A simple guide for creating and using snippets for Markdown and MDX files"
 date: December, 07 2024
 draft: false
 tags:
   - Markdown
+  - MDX
   - Frontmatter
   - VS Code
 ---
