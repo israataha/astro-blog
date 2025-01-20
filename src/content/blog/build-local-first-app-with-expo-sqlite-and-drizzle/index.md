@@ -10,7 +10,7 @@ tags:
   - Drizzle Kit
 ---
 
-In an effort to gain a better understanding of local-first architecture, I decided to build a simple habit tracking app. The app is designed to allow users to easily add and remove daily habits they wish to track, along with the ability to check them off each day. Such an application is particularly well-suited for a local-first approach, as it primarily relies on data storage directly on the user's device.
+In an effort to gain a better understanding of local-first architecture, I decided to build a simple habit tracking app. The app is designed to allow users to easily add and remove daily habits they wish to track, along with the ability to check them off each day. The app primarily relies on data stored directly on the user's device without the need for internet connectivity and cloud storage, making it particularly well-suited for a local-first approach.
 
 In this article, we'll walk through how to set up and build a local-first habit tracking app using Expo, Expo SQLite, Drizzle and Drizzle Kit.
 
@@ -315,19 +315,20 @@ npm i expo-drizzle-studio-plugin
 
 ### Setup plugin
 
-Once installed, setup the plugin with the `useDrizzleStudio` hook:
+Once installed, setup the plugin with the `useDrizzleStudio` hook passing in the Expo SQLite database defined using `openDatabaseSync` in the `db/client.ts` file.
+
+In `app/_layout.tsx` file, add the hook after the `useMigrations` line:
 
 ```tsx
 import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
-import { openDatabaseSync } from "expo-sqlite";
-import { View } from "react-native";
+import { expo_sqlite } from "@/db";
 
-const db = openDatabaseSync("db");
+export default function RootLayout() {
+  // rest of code
+  const { success, error: migrationError } = useMigrations(db, migrations);
 
-export default function App() {
-  useDrizzleStudio(db);
-
-  return <View></View>;
+  useDrizzleStudio(expo_sqlite);
+  // rest of code
 }
 ```
 
