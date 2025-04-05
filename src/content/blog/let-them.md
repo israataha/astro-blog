@@ -10,8 +10,8 @@ tags:
 
 There’s an invisible but powerful fear many of us carry: the fear of other people’s opinions. We hesitate to do the thing, not because we don’t want to, but because we’re afraid. Afraid of what everyone will think.
 
-What if I fail and everyone sees it?
-What if I say the wrong thing?
+What if I fail and everyone sees it?  
+What if I say the wrong thing?  
 What if they think I’m selfish, arrogant or worse, cringey?
 
 I grew up in a culture where the question “what will people think?” was drilled into us. It shaped how we acted, dressed, spoke, and every decision we made. There was always this invisible audience watching, judging.
