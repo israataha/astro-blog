@@ -3,7 +3,7 @@ company: "Vibrant Credit Union"
 location: "Moline, IL"
 role: "Software Architect"
 dateStart: "08/29/2022"
-dateEnd: "Now"
+dateEnd: "07/11/2025"
 ---
 
 Vibrant is a financial institution that started as Deere Harvester Credit Union in 1935 and has since then grown to more than 50,000 members across the U.S. managing more than $1 billion in assets. We’ve recently launched Vibrant Coffeehouse & Kitchen with 3 locations in Iowa and Illinois and plans to expand across the Midwest in the next few years.
