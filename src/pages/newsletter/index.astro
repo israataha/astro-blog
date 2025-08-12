@@ -1,0 +1,82 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import BottomLayout from "@layouts/BottomLayout.astro";
+import { NEWSLETTER } from "@consts";
+---
+
+<PageLayout title={NEWSLETTER.TITLE} description={NEWSLETTER.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate page-heading text-center">
+      {NEWSLETTER.TITLE}
+    </div>
+  </TopLayout>
+
+  <div class="max-w-2xl mx-auto px-4 py-8">
+    <div class="animate prose dark:prose-invert max-w-full">
+      <p class="text-lg leading-relaxed mb-6">
+        Subscribe to the <strong>Open Tabs</strong>, my weekly newsletter exploring the ideas, people, and conversations
+        shaping tech and community. Each week, I highlight an article, YouTube video, or post I’ve kept open in my
+        browser — something thought-provoking, inspiring, or worth discussing. You’ll find fresh perspectives, human
+        stories, and meaningful discussions to spark your own curiosity, all delivered straight to your inbox.
+      </p>
+
+      <div class="mb-8">
+        <p class="text-sm text-black/60 dark:text-white/60 mb-2">Want to see what you've been missing?</p>
+        <a
+          href="https://buttondown.com/opentabs/archive/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          Browse archived newsletters
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="bg-black/5 dark:bg-white/10 rounded-lg p-6 border border-black/10 dark:border-white/20">
+        <h3 class="text-xl font-semibold mb-4">Subscribe to the Open Tabs Newsletter</h3>
+        <div class="mb-8">
+          Get Open Tabs in your inbox every week — the best ideas, stories, and people from across tech and community,
+          curated for the curious.
+        </div>
+        <form
+          action="https://buttondown.com/api/emails/embed-subscribe/opentabs"
+          method="post"
+          target="popupwindow"
+          onsubmit="window.open('https://buttondown.com/opentabs', 'popupwindow')"
+          class="space-y-4 embeddable-buttondown-form"
+        >
+          <div>
+            <!-- <label for="bd-email" class="block text-sm font-medium mb-2"> Email address </label> -->
+            <input
+              type="email"
+              id="bd-email"
+              name="email"
+              required
+              placeholder="your.email@example.com"
+              class="w-full px-3 py-2 rounded outline-none text-black dark:text-white bg-white dark:bg-black/50 border border-black/20 dark:border-white/20 focus:border-black focus:dark:border-white transition-colors"
+            />
+          </div>
+          <button
+            type="submit"
+            class="px-4 py-2 bg-black dark:bg-white text-white dark:text-black font-medium rounded hover:bg-black/80 dark:hover:bg-white/80 transition-colors blend"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="text-xs text-black/60 dark:text-white/60 mt-3">
+          No spam, unsubscribe at any time. Your email is safe with us.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <BottomLayout />
+</PageLayout>

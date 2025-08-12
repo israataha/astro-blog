@@ -32,6 +32,12 @@ export const ABOUT: Page = {
   DESCRIPTION: "About me.",
 };
 
+// Newsletter Page
+export const NEWSLETTER: Page = {
+  TITLE: "Newsletter",
+  DESCRIPTION: "Subscribe to my newsletter.",
+};
+
 // Search Page
 export const SEARCH: Page = {
   TITLE: "Search",
@@ -48,6 +54,10 @@ export const LINKS: Links = [
   {
     TEXT: "Blog",
     HREF: "/blog",
+  },
+  {
+    TEXT: "Newsletter",
+    HREF: "/newsletter",
   },
   // {
   //   TEXT: "Projects",
