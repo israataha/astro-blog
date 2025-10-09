@@ -1,0 +1,198 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import BottomLayout from "@layouts/BottomLayout.astro";
+import Container from "@components/Container.astro";
+import { SPEAKING } from "@consts";
+import { attendee, speaking, podcasts } from "@content/conferences";
+
+// Sort by date (most recent first)
+const sortedSpeakingEngagements = speaking.sort((a, b) => b.date.getTime() - a.date.getTime());
+const sortedConferenceAttendance = attendee.sort((a, b) => b.date.getTime() - a.date.getTime());
+---
+
+<PageLayout title={SPEAKING.TITLE} description={SPEAKING.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate page-heading">
+      {SPEAKING.TITLE}
+    </div>
+  </TopLayout>
+
+  <BottomLayout>
+    <div class="relative bg-white dark:bg-black">
+      <div class="mx-auto max-w-screen-sm p-5 space-y-24 pb-16">
+        <!-- Speaking Engagements Section -->
+        <section class="animate">
+          <div class="space-y-8">
+            {
+              sortedSpeakingEngagements.map((engagement) => (
+                <div class="border-b border-black/10 dark:border-white/25 pb-8 last:border-b-0">
+                  <div class="space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                      <h3 class="font-semibold text-black dark:text-white text-lg">
+                        {engagement.talkTitle || engagement.title}
+                      </h3>
+                      <span class="text-sm text-black/60 dark:text-white/60">
+                        {engagement.date.toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </span>
+                    </div>
+
+                    <div class="space-y-2">
+                      <p class="font-medium text-black dark:text-white">{engagement.conference}</p>
+                      <p class="text-black/75 dark:text-white/75">📍 {engagement.location}</p>
+
+                      {engagement.description && (
+                        <p class="text-black/75 dark:text-white/75 text-sm">{engagement.description}</p>
+                      )}
+
+                      {engagement.tags && (
+                        <div class="flex flex-wrap gap-2 mt-3">
+                          {engagement.tags.map((tag) => (
+                            <span class="px-2 py-1 bg-black/5 dark:bg-white/10 text-xs rounded-full text-black/75 dark:text-white/75">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div class="flex gap-4 mt-4">
+                        {engagement.talkUrl && (
+                          <a
+                            href={engagement.talkUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-sm underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2"
+                          >
+                            Watch Talk
+                          </a>
+                        )}
+                        {engagement.slidesUrl && (
+                          <a
+                            href={engagement.slidesUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-sm underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2"
+                          >
+                            View Slides
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+  </BottomLayout>
+
+  <Container size="md">
+    <div class="animate page-heading">Podcasts</div>
+  </Container>
+
+  <BottomLayout>
+    <div class="relative bg-white dark:bg-black">
+      <div class="mx-auto max-w-screen-sm p-5 space-y-24 pb-16">
+        <section class="animate">
+          <div class="space-y-8">
+            {
+              podcasts.map((podcast) => (
+                <div class="border-b border-black/10 dark:border-white/25 pb-8 last:border-b-0">
+                  <div class="space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                      <h3 class="font-semibold text-black dark:text-white text-lg">{podcast.name}</h3>
+                    </div>
+
+                    <div class="space-y-2">
+                      <p class="text-black/75 dark:text-white/75 text-sm">{podcast.episode}</p>
+
+                      {/* {attendance.tags && (
+                        <div class="flex flex-wrap gap-2 mt-3">
+                          {attendance.tags.map((tag) => (
+                            <span class="px-2 py-1 bg-black/5 dark:bg-white/10 text-xs rounded-full text-black/75 dark:text-white/75">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )} */}
+                    </div>
+
+                    <div class="flex gap-4 mt-4">
+                      {podcast.url && (
+                        <a
+                          href={podcast.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-sm underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2"
+                        >
+                          Listen
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+  </BottomLayout>
+
+  <Container size="md">
+    <div class="animate page-heading">Attendee</div>
+  </Container>
+
+  <BottomLayout>
+    <div class="relative bg-white dark:bg-black">
+      <div class="mx-auto max-w-screen-sm p-5 space-y-24 pb-16">
+        <section class="animate">
+          <div class="space-y-8">
+            {
+              sortedConferenceAttendance.map((attendance) => (
+                <div class="border-b border-black/10 dark:border-white/25 pb-8 last:border-b-0">
+                  <div class="space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                      <h3 class="font-semibold text-black dark:text-white text-lg">{attendance.conference}</h3>
+                      <span class="text-sm text-black/60 dark:text-white/60">
+                        {attendance.date.toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </span>
+                    </div>
+
+                    <div class="space-y-2">
+                      <p class="text-black/75 dark:text-white/75">📍 {attendance.location}</p>
+
+                      {attendance.description && (
+                        <p class="text-black/75 dark:text-white/75 text-sm">{attendance.description}</p>
+                      )}
+
+                      {attendance.tags && (
+                        <div class="flex flex-wrap gap-2 mt-3">
+                          {attendance.tags.map((tag) => (
+                            <span class="px-2 py-1 bg-black/5 dark:bg-white/10 text-xs rounded-full text-black/75 dark:text-white/75">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+  </BottomLayout>
+</PageLayout>

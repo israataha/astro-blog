@@ -44,6 +44,12 @@ export const SEARCH: Page = {
   DESCRIPTION: "Search all posts and projects by keyword.",
 };
 
+// Speaking Page
+export const SPEAKING: Page = {
+  TITLE: "Speaking",
+  DESCRIPTION: "Conferences I've attended and talks I've given.",
+};
+
 // Links
 export const LINKS: Links = [
   {
@@ -58,6 +64,10 @@ export const LINKS: Links = [
   {
     TEXT: "Newsletter",
     HREF: "/newsletter",
+  },
+  {
+    TEXT: "Speaking",
+    HREF: "/speaking",
   },
   // {
   //   TEXT: "Projects",
