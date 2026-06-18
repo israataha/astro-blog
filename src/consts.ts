@@ -4,7 +4,7 @@ import type { Site, Page, Links, Socials } from "@/types";
 export const SITE: Site = {
   TITLE: "Israa Taha",
   NAME: "Israa Taha",
-  DESCRIPTION: "Developer, speaker and writer.",
+  DESCRIPTION: "Mobile developer, speaker and writer.",
   AUTHOR: "Israa Taha",
 };
 
@@ -29,7 +29,7 @@ export const PROJECTS: Page = {
 // Search Page
 export const ABOUT: Page = {
   TITLE: "About",
-  DESCRIPTION: "About me.",
+  DESCRIPTION: "Mobile developer focused on architecture, quality, and great user experiences.",
 };
 
 // Newsletter Page
