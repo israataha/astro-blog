@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content"
-import { formatDate, readingTime } from "@lib/utils"
+import { formatDate, readingTime } from "@/lib/utils"
 
 type Props = {
   entry: CollectionEntry<"projects"> | CollectionEntry<"blog">
@@ -35,7 +35,7 @@ const repoUrl = collection === "projects" ? data.repoUrl : null
       <svg class="size-5 stroke-current">
         <use href="/ui.svg#book-open"/>
       </svg>
-      {readingTime(body)}
+      {body ? readingTime(body) : null}
     </div>
   </div>
   <h1 class="text-3xl font-semibold text-black dark:text-white mt-2">

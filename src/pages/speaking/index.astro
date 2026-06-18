@@ -1,10 +1,10 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro";
-import TopLayout from "@layouts/TopLayout.astro";
-import BottomLayout from "@layouts/BottomLayout.astro";
-import Container from "@components/Container.astro";
-import { SPEAKING } from "@consts";
-import { attendee, speaking, podcasts } from "@content/conferences";
+import PageLayout from "@/layouts/PageLayout.astro";
+import TopLayout from "@/layouts/TopLayout.astro";
+import BottomLayout from "@/layouts/BottomLayout.astro";
+import Container from "@/components/Container.astro";
+import { SPEAKING } from "@/consts";
+import { attendee, speaking, podcasts } from "@/content/conferences";
 
 // Sort by date (most recent first)
 const sortedSpeakingEngagements = speaking.sort((a, b) => b.date.getTime() - a.date.getTime());

@@ -260,13 +260,13 @@ import MyComponent from "./MyComponent.astro";
 
 ```
 // Imported from components directory (src/components)
-import MyComponent from "@components/Counter"
+import MyComponent from "@/components/Counter"
 
 // Don't forget the astro client:load directive
 <Counter client:load />
 ```
 
-import Counter from "@components/Counter";
+import Counter from "@/components/Counter";
 
 <Counter client:load />
 

@@ -1,6 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-
 interface Props {
   name: string;
   title: string;
@@ -56,7 +54,7 @@ const { name, title, description, image = "/open-graph.jpg" } = Astro.props;
 <script is:inline src="/js/scroll.js"></script>
 <script is:inline src="/js/animate.js"></script>
 
-<!-- <ViewTransitions  /> -->
+<!-- <ClientRouter /> -->
 
 <script>
   import type { TransitionBeforeSwapEvent } from "astro:transitions/client";

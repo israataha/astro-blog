@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { SITE } from "@consts";
+import { SITE } from "@/consts";
 
 type Context = {
   site: string;
@@ -22,7 +22,7 @@ export async function GET(context: Context) {
       title: item.data.title,
       description: item.data.summary,
       pubDate: item.data.date,
-      link: `/blog/${item.slug}/`,
+      link: `/blog/${item.id}/`,
       // link: item.slug.startsWith("blog")
       //   ? `/blog/${item.slug}/`
       //   : `/projects/${item.slug}/`,
