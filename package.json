@@ -34,5 +34,8 @@
     "@astrojs/tailwind": {
       "astro": "$astro"
     }
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }
