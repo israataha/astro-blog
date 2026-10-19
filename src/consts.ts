@@ -50,6 +50,12 @@ export const SPEAKING: Page = {
   DESCRIPTION: "Conferences I've attended and talks I've given.",
 };
 
+// Contact Page
+export const CONTACT: Page = {
+  TITLE: "Contact",
+  DESCRIPTION: "Mash the keys and say hi — leave an email if you want a reply.",
+};
+
 // Links
 export const LINKS: Links = [
   {
@@ -78,6 +84,10 @@ export const LINKS: Links = [
   //   HREF: "/work",
   // },
   {
+    TEXT: "Contact",
+    HREF: "/contact",
+  },
+  {
     TEXT: "About",
     HREF: "/about",
   },
@@ -88,8 +98,8 @@ export const SOCIALS: Socials = [
   {
     NAME: "Email",
     ICON: "email",
-    TEXT: "israataha@gmail.com",
-    HREF: "mailto:israataha@gmail.com",
+    TEXT: "Say hi",
+    HREF: "/contact",
   },
   {
     NAME: "LinkedIn",

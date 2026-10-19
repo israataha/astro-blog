@@ -9,6 +9,7 @@ import { PROJECTS } from "@/consts"
 const projects = (await getCollection("projects"))
   .filter(project => !project.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .map(({ id, collection, data }) => ({ id, collection, data }))
 
 const tags = [...new Set(projects.flatMap(project => project.data.tags))]
   .sort((a, b) => a.localeCompare(b))

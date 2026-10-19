@@ -5,9 +5,6 @@ date: "June 17 2026"
 draft: false
 tags:
   - React Native
-  - Expo
-  - Expo Router
-  - React Navigation
 ---
 
 If you've ever tapped the Home tab in Instagram or X while already on that screen, you've seen scroll-to-top in action. The list jumps back to the top of the screen. This behavior is common and something users have come to expect from any app with a bottom tab bar and scrollable content. In Expo Router, it's fairly easy to implement and how you do it depends on which tab layout you use:

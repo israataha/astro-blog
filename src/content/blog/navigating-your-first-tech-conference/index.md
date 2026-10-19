@@ -4,8 +4,7 @@ summary: "A practical guide to meeting new people and making the most of tech co
 date: "August 5, 2024"
 draft: false
 tags:
-  - Networking
-  - Conferences
+  - Career
 ---
 
 For years, I attended [THAT Conference](https://thatconference.com/) with my coworkers; it was the ultimate team-bonding experience, a chance to kick back and get to know the people I spent 8 hours a day, 5 days a week with on a much deeper level. From dinners and game nights, to rounds of mini golf and late night conversations, we created long lasting memories that would be talked about for years to come. THAT truly delivered on its promise of being a summer camp for geeks.

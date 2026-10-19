@@ -8,9 +8,11 @@ import { SEARCH } from "@/consts"
 
 const posts = (await getCollection("blog"))
   .filter(post => !post.data.draft)
+  .map(({ id, collection, data }) => ({ id, collection, data }))
 
 const projects = (await getCollection("projects"))
   .filter(post => !post.data.draft)
+  .map(({ id, collection, data }) => ({ id, collection, data }))
 
 const data = [...posts, ...projects] as CollectionEntry<"blog">[]
 ---

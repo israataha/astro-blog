@@ -6,6 +6,14 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      colors: {
+        page: "var(--color-page)",
+        surface: "var(--color-surface)",
+        ink: "var(--color-ink)",
+        muted: "var(--color-muted)",
+        accent: "var(--color-accent)",
+        edge: "var(--color-border)",
+      },
       fontFamily: {
         "sans": ["Atkinson", ...defaultTheme.fontFamily.sans],
       },

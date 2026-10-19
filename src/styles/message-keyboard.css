@@ -1,0 +1,160 @@
+.message-keyboard {
+  --mk-key-h: 48px;
+  --mk-key-w: 48px;
+  --mk-gap: 6px;
+  --mk-press: 3px;
+}
+
+.message-keyboard .mk-board {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mk-gap);
+  padding: 0.85rem;
+  border-radius: 1rem;
+  user-select: none;
+  touch-action: manipulation;
+  background: linear-gradient(180deg, #3a4452 0%, #2a3340 45%, #1f2630 100%);
+  box-shadow:
+    0 2px 0 #151b24,
+    0 16px 36px rgb(0 0 0 / 0.2),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+}
+
+.dark .message-keyboard .mk-board {
+  background: linear-gradient(180deg, #2a3140 0%, #1a1f2a 45%, #12161e 100%);
+}
+
+.message-keyboard .mk-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--mk-gap);
+}
+
+.message-keyboard .mk-key {
+  position: relative;
+  width: var(--mk-key-w);
+  height: var(--mk-key-h);
+  border: none;
+  border-radius: 0.55rem;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #1c2430;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.message-keyboard .mk-key::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, #b8c2ce, #d5dde6);
+  box-shadow: 0 var(--mk-press) 0 #8e9aaa;
+  transition:
+    transform 70ms ease,
+    box-shadow 70ms ease;
+}
+
+.message-keyboard .mk-key::after {
+  content: "";
+  position: absolute;
+  inset: 2px 2px calc(var(--mk-press) + 1px) 2px;
+  border-radius: 0.4rem;
+  background: linear-gradient(180deg, #fff, #f7f9fb);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9);
+  transition: inset 70ms ease;
+}
+
+.message-keyboard .mk-key.special::after {
+  background: linear-gradient(180deg, #eef3f8, #dfe6ee);
+}
+
+.message-keyboard .mk-key.special {
+  color: #3d4b5c;
+  font-size: 0.62rem;
+}
+
+.message-keyboard .mk-key .mk-label {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding-bottom: var(--mk-press);
+  transition:
+    padding-bottom 70ms ease,
+    transform 70ms ease;
+  pointer-events: none;
+}
+
+.message-keyboard .mk-key:active::before,
+.message-keyboard .mk-key.pressed::before {
+  transform: translateY(var(--mk-press));
+  box-shadow: 0 0 0 #8e9aaa;
+}
+
+.message-keyboard .mk-key:active::after,
+.message-keyboard .mk-key.pressed::after {
+  inset: 2px 2px 1px 2px;
+}
+
+.message-keyboard .mk-key:active .mk-label,
+.message-keyboard .mk-key.pressed .mk-label {
+  padding-bottom: 0;
+  transform: translateY(var(--mk-press));
+}
+
+.message-keyboard .mk-key:focus-visible .mk-label {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.message-keyboard .mk-key.wide-1-25 {
+  width: calc(var(--mk-key-w) * 1.25 + var(--mk-gap) * 0.25);
+}
+
+.message-keyboard .mk-key.wide-1-5 {
+  width: calc(var(--mk-key-w) * 1.5 + var(--mk-gap) * 0.5);
+}
+
+.message-keyboard .mk-key.wide-1-75 {
+  width: calc(var(--mk-key-w) * 1.75 + var(--mk-gap) * 0.75);
+}
+
+.message-keyboard .mk-key.wide-2 {
+  width: calc(var(--mk-key-w) * 2 + var(--mk-gap));
+}
+
+.message-keyboard .mk-key.wide-2-25 {
+  width: calc(var(--mk-key-w) * 2.25 + var(--mk-gap) * 1.25);
+}
+
+.message-keyboard .mk-key.space {
+  width: calc(var(--mk-key-w) * 6.25 + var(--mk-gap) * 5.25);
+}
+
+@media (max-width: 760px) {
+  .message-keyboard {
+    --mk-key-h: 38px;
+    --mk-key-w: 32px;
+    --mk-gap: 4px;
+    --mk-press: 2px;
+  }
+
+  .message-keyboard .mk-board {
+    overflow-x: auto;
+    padding: 0.65rem;
+  }
+
+  .message-keyboard .mk-key {
+    font-size: 0.65rem;
+  }
+
+  .message-keyboard .mk-key.special {
+    font-size: 0.5rem;
+  }
+}

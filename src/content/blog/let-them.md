@@ -4,8 +4,7 @@ summary: "Why you should stop letting other people's opinions run your life"
 date: April, 05 2025
 draft: false
 tags:
-  - Books
-  - Self Development
+  - Career
 ---
 
 There’s an invisible but powerful fear many of us carry: the fear of other people’s opinions. We hesitate to do the thing, not because we don’t want to, but because we’re afraid. Afraid of what everyone will think.

@@ -5,9 +5,6 @@ date: "June 24 2024"
 draft: false
 tags:
   - React Native
-  - React Navigation
-  - Troubleshooting
-  - iOS
 ---
 
 While testing a React Native app on iOS recently, I noticed that every time I selected a new tab, the text on the screen would "jump" while rendering. Oddly enough, I wasn't seeing the same behavior on an emulator.

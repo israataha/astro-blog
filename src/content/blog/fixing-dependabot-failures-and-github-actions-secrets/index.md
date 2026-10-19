@@ -4,9 +4,7 @@ summary: "Learn how to fix Dependabot-triggered workflow failures by configuring
 date: "December 03 2024"
 draft: false
 tags:
-  - GitHub Actions
-  - Dependabot
-  - Troubleshooting
+  - Tooling
 ---
 
 If you've ever encountered failed builds triggered by Dependabot pull requests updating dependencies, due to missing secrets, you're not alone. The root cause lies in how GitHub handles secrets in workflows triggered by Dependabot. In this post, we'll explain the problem, the solution, and best practices to handle Dependabot-triggered workflows effectively.

@@ -3,64 +3,91 @@ import { Image } from "astro:assets";
 import heroImage from "@/assets/images/hero_image.jpg";
 ---
 
-<!-- HERO -->
+<!-- HERO — Monica-inspired denim layout; same copy as before -->
 <section class="relative w-full">
-  <!-- <div id="planetcont" class="animate absolute inset-0 top-1/4 overflow-hidden">
-    <div
-      id="crescent"
-      class="absolute top-0 left-1/2 -translate-x-1/2 w-[250vw] min-h-[100vh] aspect-square rounded-full p-[1px] bg-gradient-to-b from-black/25 dark:from-white/75 from-0% to-transparent to-5%"
-    >
-      <div
-        id="planet"
-        class="w-full h-full bg-white dark:bg-black rounded-full p-[1px] overflow-hidden flex justify-center"
-      >
-        <div id="blur" class="w-full h-20 rounded-full bg-neutral-900/25 dark:bg-white/25 blur-3xl"></div>
+  <div class="mx-auto max-w-screen-md px-5 py-6 md:py-8 mt-16 md:mt-20">
+    <div class="hero-row animate relative z-10 flex flex-wrap items-center gap-5 md:gap-7">
+      <Image
+        src={heroImage}
+        alt="Israa Taha"
+        class="hero-avatar relative z-10 size-[140px] md:size-[180px] rounded-full object-cover object-[center_18%] shadow-[0_0_0_3px_var(--color-accent-soft)]"
+        loading="eager"
+        widths={[180, 360]}
+        sizes="180px"
+      />
+      <div class="hero-identity min-w-0 flex-1">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--color-ink)] tracking-tight">
+          <span class="hero-name">👋 Hi, I'm Israa</span>
+        </h1>
+        <p class="mt-2 text-lg md:text-xl text-[var(--color-accent)]">
+          Mobile developer · <mark class="mark-accent">Speaker</mark> · Writer
+        </p>
       </div>
     </div>
-  </div> -->
-  <!-- <div class="animate absolute h-full w-full flex items-center justify-center">
-    <div class="relative w-full h-full flex items-center justify-center"> -->
-  <div class="mx-auto max-w-screen-md px-5 py-6 md:py-8 mt-16 md:mt-20">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-      <div class="text-center">
-        <!-- <p class="animated text-lg md:text-xl lg:text-2xl font-semibold opacity-75">Hello, I'm Israa</p> -->
-        <h1 class="animated text-2xl md:text-3xl font-bold text-black dark:text-white">👋 Hi, I'm Israa</h1>
-        <p class="animated text-base md:text-lg opacity-75 mt-2">Mobile developer · Speaker · Writer</p>
-        <p class="animated text-sm md:text-base opacity-75 my-4 mx-auto max-w-md">
-          I build cross-platform apps with React Native and Expo, focusing on architecture and quality. I care about the
-          details that turn good software into great experiences — and I write and speak about what I learn along the
-          way, from mobile patterns to how AI tools are changing the way we build and ship software.
-        </p>
-        <div id="ctaButtons" class="animated flex flex-wrap gap-4 justify-center mt-4">
-          <!-- <a
-            href="/blog"
-            class="py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend"
-          >
-            Read my blog
-          </a> -->
-          <a
-            href="/about"
-            class="py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend"
-          >
-            Learn more
-          </a>
-          <!-- <a
-            href="/about"
-            class="py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend"
-          >
-            Let's connect
-          </a> -->
-        </div>
-      </div>
 
-      <div class="animated flex justify-center md:justify-end">
-        <Image
-          src={heroImage}
-          alt="Israa Taha"
-          class="w-full max-w-[260px] sm:max-w-[280px] md:max-w-[300px] aspect-[4/5] object-cover object-top rounded-2xl"
-          loading="eager"
-        />
-      </div>
+    <div class="hero-note animate relative z-0">
+      <p class="hero-note-text text-[var(--color-ink)]/80 leading-relaxed m-0">
+        I build cross-platform apps with React Native and Expo, focusing on architecture and quality. I care about the
+        details that turn good software into great experiences — and I write and speak about what I learn along the way,
+        from mobile patterns to how AI tools are changing the way we build and ship software.
+      </p>
+    </div>
+
+    <div id="ctaButtons" class="animate flex flex-wrap gap-3 mt-5">
+      <a
+        href="/about"
+        class="btn-accent inline-flex py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base blend"
+      >
+        Learn more
+      </a>
+      <a
+        href="/contact"
+        class="btn-accent-outline inline-flex py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base blend"
+      >
+        Say hi
+      </a>
     </div>
   </div>
 </section>
+
+<style>
+  .hero-name {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    text-decoration-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  }
+
+  .hero-note {
+    margin-top: -2.25rem;
+    padding: 2.75em 1.5em 1.5em;
+    border-radius: 5px;
+    background-color: var(--color-note);
+    opacity: 0.95;
+    box-shadow:
+      rgba(0, 0, 0, 0.18) 0 1px 4px,
+      rgba(0, 0, 0, 0.04) 0 0 40px inset;
+  }
+
+  .hero-note-text {
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+
+  @media (min-width: 768px) {
+    .hero-note {
+      margin-top: -3rem;
+      padding: 3.25em 1.85em 1.75em;
+    }
+
+    .hero-note-text {
+      font-size: 1.2rem;
+    }
+  }
+
+  html.dark .hero-note {
+    box-shadow:
+      rgba(0, 0, 0, 0.35) 0 1px 4px,
+      rgba(0, 0, 0, 0.08) 0 0 40px inset;
+  }
+</style>

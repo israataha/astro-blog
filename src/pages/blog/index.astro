@@ -9,6 +9,8 @@ import { BLOG } from "@/consts"
 const posts = (await getCollection("blog"))
   .filter(post => !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  // Pass only island-safe fields — full entries include body/rendered and break Solid hydration
+  .map(({ id, collection, data }) => ({ id, collection, data }))
 
 const tags = [...new Set(posts.flatMap(post => post.data.tags))]
   .sort((a, b) => a.localeCompare(b))

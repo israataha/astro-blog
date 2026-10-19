@@ -10,7 +10,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Atkinson";
     src: url("/fonts/atkinson-bold.woff") format("woff");
@@ -18,26 +18,61 @@
     font-style: normal;
     font-display: swap;
   }
+
+  :root {
+    --color-page: #f3f5f7;
+    --color-surface: #ffffff;
+    --color-ink: #1a1f26;
+    --color-muted: #5e6a78;
+    --color-accent: #3d6f9e;
+    --color-accent-soft: rgba(61, 111, 158, 0.14);
+    --color-accent-ink: #ffffff;
+    --color-border: rgba(26, 31, 38, 0.12);
+    --color-note: rgba(61, 111, 158, 0.12);
+    --color-mark: linear-gradient(
+      to right,
+      rgba(61, 111, 158, 0.22),
+      rgba(61, 111, 158, 0.55) 150%,
+      rgba(61, 111, 158, 0.3)
+    );
+  }
+
+  html.dark {
+    --color-page: #12151a;
+    --color-surface: #1c222b;
+    --color-ink: #e8ecf1;
+    --color-muted: #9aa6b5;
+    --color-accent: #7ba3c9;
+    --color-accent-soft: rgba(123, 163, 201, 0.16);
+    --color-accent-ink: #12151a;
+    --color-border: rgba(232, 236, 241, 0.12);
+    --color-note: rgba(123, 163, 201, 0.12);
+    --color-mark: linear-gradient(
+      to right,
+      rgba(123, 163, 201, 0.25),
+      rgba(123, 163, 201, 0.6) 150%,
+      rgba(123, 163, 201, 0.35)
+    );
+  }
 }
 
 html {
   overflow-y: scroll;
   color-scheme: light;
-  background-color: white;
+  background-color: var(--color-page);
   font-family: "Atkinson", sans-serif;
-  
 }
 
 html.dark {
   color-scheme: dark;
-  background-color: black;
+  background-color: var(--color-page);
 }
 
 html,
 body {
   @apply h-full w-full antialiased;
-  @apply bg-white dark:bg-black;
-  @apply text-black/75 dark:text-white/75;
+  background-color: var(--color-page);
+  color: color-mix(in srgb, var(--color-ink) 78%, transparent);
 }
 
 body {
@@ -45,7 +80,8 @@ body {
 }
 
 main {
-  @apply flex flex-col flex-1 bg-white dark:bg-black;
+  @apply flex flex-col flex-1;
+  background-color: var(--color-page);
 }
 
 header {
@@ -58,8 +94,8 @@ header:not(.scrolled) {
 }
 
 header.scrolled {
-  @apply bg-white/75 dark:bg-black/50;
-  @apply border-black/10 dark:border-white/25;
+  background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  border-color: var(--color-border);
   @apply backdrop-blur-sm saturate-200;
 }
 
@@ -67,12 +103,71 @@ article {
   @apply prose dark:prose-invert max-w-full pb-12;
 }
 
+article.prose a {
+  color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+
+article.prose a:hover {
+  color: color-mix(in srgb, var(--color-accent) 80%, var(--color-ink));
+}
+
 .page-heading {
-  @apply font-semibold text-black dark:text-white;
+  @apply font-semibold;
+  color: var(--color-ink);
+}
+
+.page-heading::before {
+  content: ">_ ";
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.section-title {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+}
+
+.section-title::before {
+  content: ">_ ";
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.btn-accent:hover {
+  opacity: 0.88;
+}
+
+.btn-accent-outline {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
+}
+
+.btn-accent-outline:hover {
+  background-color: var(--color-accent-soft);
 }
 
 .blend {
   @apply transition-all duration-300 ease-in-out;
+}
+
+.mark-accent {
+  background: var(--color-mark);
+  border-radius: 24px 9px;
+  padding: 0 0.2em;
+  color: inherit;
 }
 
 /** Light theme particles on home page */
@@ -89,7 +184,9 @@ article {
 .animate {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
 }
 
 .animate.show {
@@ -108,7 +205,7 @@ article img {
  * TWINKLE STARS
  */
 
- #twinkle-star.template {
+#twinkle-star.template {
   @apply absolute -left-full; /* hide offscreen */
 }
 
@@ -116,13 +213,12 @@ article img {
   @apply animate-twinkle; /* defined in tailwind.config */
 }
 
-
 /**
  * Meteors
  */
 
 #meteors .shower {
-  @apply absolute inset-0 top-0;;
+  @apply absolute inset-0 top-0;
   @apply left-1/2 -translate-x-1/2;
   @apply w-screen aspect-square;
 }

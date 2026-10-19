@@ -7,7 +7,7 @@ import { NEWSLETTER } from "@/consts";
 
 <PageLayout title={NEWSLETTER.TITLE} description={NEWSLETTER.DESCRIPTION}>
   <TopLayout>
-    <div class="animate page-heading text-center">
+    <div class="animate page-heading">
       {NEWSLETTER.TITLE}
     </div>
   </TopLayout>
@@ -61,12 +61,12 @@ import { NEWSLETTER } from "@/consts";
               name="email"
               required
               placeholder="your.email@example.com"
-              class="w-full px-3 py-2 rounded outline-none text-black dark:text-white bg-white dark:bg-black/50 border border-black/20 dark:border-white/20 focus:border-black focus:dark:border-white transition-colors"
+              class="w-full px-3 py-2 rounded outline-none text-black dark:text-white bg-page/50 border border-black/20 dark:border-white/20 focus:border-black focus:dark:border-white transition-colors"
             />
           </div>
           <button
             type="submit"
-            class="px-4 py-2 bg-black dark:bg-white text-white dark:text-black font-medium rounded hover:bg-black/80 dark:hover:bg-white/80 transition-colors blend"
+            class="px-4 py-2 btn-accent font-medium rounded transition-colors blend"
           >
             Subscribe
           </button>

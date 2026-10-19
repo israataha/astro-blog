@@ -4,10 +4,7 @@ summary: "A guide to supporting iOS Password Autofill with ASP .NET Core backend
 date: "August 5, 2024"
 draft: false
 tags:
-  - Azure
-  - Apple
-  - iOS
-  - .NET
+  - Tooling
 ---
 
 If you're developing an iOS app and want to support features like Universal Links or the AutoFill Passwords feature, you need to deploy an `apple-app-site-association` file to your web server. In this article we'll walk through how to deploy this file to an Azure Web App using an ASP .NET Core application.

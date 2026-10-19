@@ -4,10 +4,7 @@ summary: "A simple guide for creating and using snippets for Markdown and MDX fi
 date: December, 07 2024
 draft: false
 tags:
-  - Markdown
-  - MDX
-  - Frontmatter
-  - VS Code
+  - Tooling
 ---
 
 My blog is built using markdown files (MD/MDX) that rely on [frontmatter](https://mdxjs.com/guides/frontmatter/) to define key details like the title, summary, date, and tags for each post. As I’ve started writing more frequently, manually copying and pasting the frontmatter into every new file began to feel tedious. To streamline the process and save time, I decided to create a custom snippet for it, and here's how I did it.

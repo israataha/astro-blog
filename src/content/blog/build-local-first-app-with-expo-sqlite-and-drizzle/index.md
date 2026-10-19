@@ -4,10 +4,8 @@ summary: "Learn how to build a local-first habit tracking app using Expo, Expo S
 date: January, 19 2025
 draft: false
 tags:
-  - Expo
-  - SQLite
-  - Drizzle
-  - Drizzle Kit
+  - React Native
+  - Architecture
 ---
 
 In an effort to gain a better understanding of local-first architecture, I decided to build a simple habit tracking app. The app is designed to allow users to easily add and remove daily habits they wish to track, along with the ability to check them off each day. The app primarily relies on data stored directly on the user's device without the need for internet connectivity and cloud storage, making it particularly well-suited for a local-first approach.
